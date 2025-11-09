@@ -208,6 +208,7 @@ function periodicNotes(periodicity, datetime, opts)
   end
   print(vim.inspect(note).."-type:"..type(note))
   client.open_note(client, note)
+  
 end
 
 function quickNote()
