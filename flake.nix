@@ -28,6 +28,10 @@
         lib = pkgs.lib;
         pkgs = pkgs;
       };
+      workConfig = import ./profiles/workNvim.nix {
+        lib = pkgs.lib;
+        pkgs = pkgs;
+      };
 
       dotfilesConfig = import ./profiles/dotfilesNvim.nix {
         lib = pkgs.lib;
@@ -48,6 +52,10 @@
       baseNvim = inputs.nvf.lib.neovimConfiguration {
         inherit pkgs;
         modules = [nvimConfigs.baseConfig];
+      };
+      workNvim = inputs.nvf.lib.neovimConfiguration {
+        inherit pkgs;
+        modules = [nvimConfigs.workConfig];
       };
       dotfilesNvim = inputs.nvf.lib.neovimConfiguration {
         inherit pkgs;

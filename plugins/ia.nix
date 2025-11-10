@@ -1,5 +1,6 @@
 {
   config.vim.assistant.copilot = {
+    enable = true;
     mappings = {
       panel = {
         jumpNext = "$$";

@@ -11,5 +11,6 @@
     completion.enable = true;
     basics.enable = true;
     ai.enable = true;
+    pairs.enable = true;
   };
 }
