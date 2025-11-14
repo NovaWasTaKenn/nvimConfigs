@@ -10,7 +10,7 @@
         next = "<M-$>";
         prev = "<M-^>";
         dismiss = "<M-*>";
-        accept = "<M-CR>";
+        accept = "<M-Enter>";
       };
     };
   };
