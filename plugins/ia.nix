@@ -9,8 +9,8 @@
       suggestion = {
         next = "<M-$>";
         prev = "<M-^>";
-        dismiss = "<C-^>";
-        accept = "<C-$>";
+        dismiss = "<M-*>";
+        accept = "<M-CR>";
       };
     };
   };
