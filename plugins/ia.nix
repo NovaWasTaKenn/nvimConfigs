@@ -3,13 +3,14 @@
     enable = true;
     mappings = {
       panel = {
-        jumpNext = "$$";
-        jumpPrev = "^^";
+        jumpNext = "<leader>$";
+        jumpPrev = "<leader>^";
       };
       suggestion = {
         next = "<M-$>";
         prev = "<M-^>";
-        dismiss = "<C-$>";
+        dismiss = "<C-^>";
+        accept = "<C-$>";
       };
     };
   };

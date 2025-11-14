@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Required, nvf works best and only directly supports flakes
+          # Required, nvf works best and only directly supports flakes
     nvf = {
       url = "github:notashelf/nvf";
 

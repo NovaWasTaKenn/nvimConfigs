@@ -12,7 +12,7 @@ in {
     ../plugins/harpoon.nix
     ../plugins/theme.nix
     ../plugins/general.nix
-    ../plugins/formatting.nix
+    ./plugins/formatting_perso.nix
     ./plugins/nixlang.nix
     ../plugins/ia.nix
   ];
