@@ -32,10 +32,10 @@
                 -- If autoformat is currently disabled for this buffer,
                 -- then enable it, otherwise disable it
                 if vim.b.disable_autoformat then
-                  vim.cmd 'FormatEnable'
+                  vim.b.disable_autoformat = false
                   vim.notify 'Enabled autoformat for current buffer'
                 else
-                  vim.cmd 'FormatDisable!'
+                  vim.b.disable_autoformat = true
                   vim.notify 'Disabled autoformat for current buffer'
                 end
               end'';
@@ -49,10 +49,10 @@
                 -- If autoformat is currently disabled globally,
                 -- then enable it globally, otherwise disable it globally
                 if vim.g.disable_autoformat then
-                  vim.cmd 'FormatEnable'
+                  vim.g.disable_autoformat = false
                   vim.notify 'Enabled autoformat globally'
                 else
-                  vim.cmd 'FormatDisable'
+                  vim.g.disable_autoformat = true
                   vim.notify 'Disabled autoformat globally'
                 end
               end'';
