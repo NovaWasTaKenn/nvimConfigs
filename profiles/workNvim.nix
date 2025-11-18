@@ -15,11 +15,7 @@ in {
     ./plugins/nixlang.nix
     ./plugins/formatting_work.nix
     ./plugins/python.nix
-    ./plugins/scala.nix
     ./plugins/terraform.nix
     ../plugins/ia.nix
-
   ];
-
-
 }
