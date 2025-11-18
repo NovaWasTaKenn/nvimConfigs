@@ -15,7 +15,7 @@
       key = "<leader>lfc";
       mode = "n";
       silent = false;
-      action = "<cmd>lua require('conform').format({async = true})<CR>";
+      action = "<cmd>lua require('conform-nvim').format({async = true})<CR>";
     }
     {
       key = "<leader>p";

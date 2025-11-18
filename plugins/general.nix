@@ -7,27 +7,19 @@
       statusline.lualine.enable = true;
       telescope = {
         enable = true;
-        setupOpts.defaults.vimgrep_arguments = [
-          "\${pkgs.ripgrep}/bin/rg"
-          "--color=never"
-          "--no-heading"
-          "--with-filename"
-          "--line-number"
-          "--column"
-          "--smart-case"
-          "--hidden"
-          "--no-ignore"
-          "\${pkgs.ripgrep}/bin/rg"
-          "--color=never"
-          "--no-heading"
-          "--with-filename"
-          "--line-number"
-          "--column"
-          "--smart-case"
-          "--hidden"
-          "--no-ignore"
-          "--no-ignore-vcs"
-        ];
+        setupOpts = {
+          defaults = {
+            file_ignore_patterns = []; # make sure nothing filters
+          };
+          pickers.find_files = {
+            hidden = true;
+            no_ignore = true;
+            no_ignore_parent = true;
+          };
+          pickers.git_files = {
+            show_untracked = true;
+          };
+        };
       };
       autocomplete.nvim-cmp.enable = true;
       languages = {
