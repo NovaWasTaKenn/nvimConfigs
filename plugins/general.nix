@@ -11,14 +11,15 @@
           defaults = {
             file_ignore_patterns = []; # make sure nothing filters
           };
-          pickers.find_files = {
-            hidden = true;
-            no_ignore = true;
-            no_ignore_parent = true;
-          };
-          pickers.git_files = {
-            show_untracked = true;
-          };
+          pickers.find_files.find_command = [
+            "fd"
+            "--type"
+            "f"
+            "--no-ignore-vcs"
+            "--color=never"
+            "--hidden"
+            "--follow"
+          ];
         };
       };
       autocomplete.nvim-cmp.enable = true;
