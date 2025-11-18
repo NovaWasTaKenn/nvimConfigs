@@ -12,11 +12,11 @@
             file_ignore_patterns = []; # make sure nothing filters
           };
           pickers.find_files.find_command = [
-            "fd"
+            "\${pkgs.fd}/bin/fd"
             "--type"
             "f"
-            "--no-ignore-vcs"
-            "--color=never"
+            "--no-ignore"
+            "--color=auto"
             "--hidden"
             "--follow"
           ];
