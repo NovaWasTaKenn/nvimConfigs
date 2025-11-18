@@ -2,14 +2,10 @@
   config = {
     vim = {
       withPython3 = true;
-      options = {
-        tabstop = 2;
-        shiftwidth = 2;
-      };
       viAlias = false;
       vimAlias = true;
       statusline.lualine.enable = true;
- telescope = {
+      telescope = {
         enable = true;
         setupOpts.defaults.vimgrep_arguments = [
           "\${pkgs.ripgrep}/bin/rg"
