@@ -16,6 +16,6 @@ in {
     ./plugins/formatting_work.nix
     ./plugins/python.nix
     ./plugins/terraform.nix
-    # ../plugins/ia.nix
+    ../plugins/ia.nix
   ];
 }

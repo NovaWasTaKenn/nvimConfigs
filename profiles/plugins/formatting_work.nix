@@ -12,6 +12,6 @@
   };
   config.vim.formatter.conform-nvim = {
     enable = true;
-    format_on_save = false;
+    # setupOpts.format_on_save = false;
   };
 }
