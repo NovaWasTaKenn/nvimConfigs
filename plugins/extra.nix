@@ -19,7 +19,7 @@
     "Preview.nvim" = {
       package = pkgs.vimPlugins.Preview-nvim;
       setupModule = "Preview-nvim";
-      cmd = ["PreviewNvimEnable"];
+      ft = ["puml" "pu" "plantuml" "wsd" "iuml" "pdf" "markdown" "md"];
     };
   };
 }
