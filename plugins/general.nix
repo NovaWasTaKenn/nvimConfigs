@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   config = {
     vim = {
       withPython3 = true;
@@ -12,7 +12,7 @@
             file_ignore_patterns = []; # make sure nothing filters
           };
           pickers.find_files.find_command = [
-            "\${pkgs.fd}/bin/fd"
+            "${pkgs.fd}/bin/fd"
             "--type"
             "f"
             "--no-ignore"
