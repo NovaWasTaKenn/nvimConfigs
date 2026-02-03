@@ -16,7 +16,7 @@
       setupModule = "telescope-zoxide";
       cmd = ["Telescope zoxide list"];
     };
-    "preview.nvim" = {
+    "Preview.nvim" = {
       package = pkgs.vimPlugins.Preview-nvim;
       setupModule = "Preview-nvim";
       cmd = ["PreviewNvimEnable"];
