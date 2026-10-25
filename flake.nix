@@ -20,7 +20,10 @@
     system = "x86_64-linux"; # Passer dans dossier profile / plus simple de laisser ici
     user = "quentin"; # TODO : multi users
     host = "desktop";
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
+    pkgs = import inputs.nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
 
     # Use loops
     nvimConfigs = {

@@ -1,6 +1,26 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   config = {
     vim = {
+      # nvf's legacy `vim.maps.<mode>` options no longer have a `{}` default;
+      # this repo only uses `vim.keymaps`, so stub them out to avoid eval errors.
+      maps = lib.genAttrs [
+        "normal"
+        "insert"
+        "select"
+        "visual"
+        "terminal"
+        "normalVisualOp"
+        "visualOnly"
+        "operator"
+        "insertCommand"
+        "lang"
+        "command"
+      ] (_: lib.mkDefault {});
+
       withPython3 = true;
       viAlias = false;
       vimAlias = true;
@@ -23,8 +43,8 @@
         };
       };
       autocomplete.nvim-cmp.enable = true;
+      lsp.enable = true;
       languages = {
-        enableLSP = true;
         enableTreesitter = true;
       };
     };
