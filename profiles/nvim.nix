@@ -1,6 +1,4 @@
-{...}: let
-  #inherit (lib.nvim.dag) entryBefore;
-in {
+{...}: {
   imports = [
     ../plugins/git.nix
     ../plugins/mini.nix
@@ -12,8 +10,11 @@ in {
     ../plugins/harpoon.nix
     ../plugins/theme.nix
     ../plugins/general.nix
-    ./plugins/formatting_perso.nix
-    ./plugins/nixlang.nix
     ../plugins/ia.nix
+    ./plugins/formatting.nix
+    ./plugins/nixlang.nix
+    ./plugins/lua.nix
+    ./plugins/python.nix
+    ./plugins/terraform.nix
   ];
 }

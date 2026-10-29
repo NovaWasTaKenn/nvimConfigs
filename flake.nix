@@ -17,63 +17,25 @@
   };
 
   outputs = inputs @ {...}: let
-    system = "x86_64-linux"; # Passer dans dossier profile / plus simple de laisser ici
-    user = "quentin"; # TODO : multi users
-    host = "desktop";
+    system = "x86_64-linux";
     pkgs = import inputs.nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
 
-    # Use loops
-    nvimConfigs = {
-      baseConfig = import ./profiles/baseNvim.nix {
-        lib = pkgs.lib;
-        pkgs = pkgs;
-      };
-      workConfig = import ./profiles/workNvim.nix {
-        lib = pkgs.lib;
-        pkgs = pkgs;
-      };
-
-      dotfilesConfig = import ./profiles/dotfilesNvim.nix {
-        lib = pkgs.lib;
-        pkgs = pkgs;
-      };
-
-      scalaConfig = import ./profiles/scalaNvim.nix {
-        lib = pkgs.lib;
-        pkgs = pkgs;
-      };
-      pythonConfig = import ./profiles/pythonNvim.nix {
-        lib = pkgs.lib;
-        pkgs = pkgs;
-      };
+    nvimConfig = import ./profiles/nvim.nix {
+      lib = pkgs.lib;
+      pkgs = pkgs;
     };
 
-    builtNvim = {
-      baseNvim = inputs.nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = [nvimConfigs.baseConfig];
-      };
-      workNvim = inputs.nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = [nvimConfigs.workConfig];
-      };
-      dotfilesNvim = inputs.nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = [nvimConfigs.dotfilesConfig];
-      };
-      scalaNvim = inputs.nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = [nvimConfigs.scalaConfig];
-      };
-      pythonNvim = inputs.nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = [nvimConfigs.pythonConfig];
-      };
+    nvim = inputs.nvf.lib.neovimConfiguration {
+      inherit pkgs;
+      modules = [nvimConfig];
     };
   in {
-    packages.${system} = pkgs.lib.mapAttrs (packageName: packageConfig: packageConfig.neovim) builtNvim;
+    packages.${system} = {
+      nvim = nvim.neovim;
+      default = nvim.neovim;
+    };
   };
 }
