@@ -13,6 +13,13 @@ in {
     notes.obsidian = {
       enable = true;
       setupOpts = {
+        # The plugin is lazy-loaded (on `:Obsidian ...` or opening a markdown
+        # file), and it now only registers the master `Obsidian` command as a
+        # lazy-load trigger, not the deprecated per-action `ObsidianXxx`
+        # commands. Disable the legacy commands so we don't rely on an
+        # interface that wouldn't exist before the plugin is loaded anyway,
+        # and that upstream will remove in 4.0.0.
+        legacy_commands = false;
         ui.enable = false;
         completion.nvim_cmp = true;
         notes_subdir = "10-Inbox";
@@ -51,35 +58,35 @@ in {
         key = "<leader>oss";
         mode = "n";
         silent = false;
-        action = ":ObsidianSearch<CR>";
+        action = ":Obsidian search<CR>";
         desc = "Obsidian search";
       }
       {
         key = "<leader>ost";
         mode = "n";
         silent = false;
-        action = ":ObsidianTags<CR>";
+        action = ":Obsidian tags<CR>";
         desc = "Obsidian tags";
       }
       {
         key = "<leader>fo";
         mode = "n";
         silent = false;
-        action = ":ObsidianSearch<CR>";
+        action = ":Obsidian search<CR>";
         desc = "Obsidian search";
       }
       {
         key = "<leader>on";
         mode = "n";
         silent = false;
-        action = ":ObsidianNew<CR>";
+        action = ":Obsidian new<CR>";
         desc = "Obsidian new note";
       }
       {
         key = "<leader>ov";
         mode = "n";
         silent = false;
-        action = ":ObsidianQuickSwitch<CR>";
+        action = ":Obsidian quick_switch<CR>";
         desc = "Obsidian quick switch";
       }
 
@@ -88,21 +95,21 @@ in {
         key = "<leader>olb";
         mode = "n";
         silent = false;
-        action = ":ObsidianBacklinks<CR>";
+        action = ":Obsidian backlinks<CR>";
         desc = "Obsidian backlinks";
       }
       {
         key = "<leader>oll";
         mode = "n";
         silent = false;
-        action = ":ObsidianLinks<CR>";
+        action = ":Obsidian links<CR>";
         desc = "Obsidian links";
       }
       {
         key = "<leader>oln";
         mode = "n";
         silent = false;
-        action = ":ObsidianLinksNew<CR>";
+        action = ":Obsidian link_new<CR>";
         desc = "Obsidian new link";
       }
 
@@ -154,7 +161,7 @@ in {
         key = "<leader>ot";
         mode = "n";
         silent = false;
-        action = ":ObsidianTags<CR>";
+        action = ":Obsidian tags<CR>";
         desc = "Obsidian search or add tags";
       }
       {
