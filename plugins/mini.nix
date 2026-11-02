@@ -4,7 +4,13 @@
     comment.enable = true;
     splitjoin.enable = true;
     operators.enable = true;
-    notify.enable = true;
+    notify = {
+      enable = true;
+      # Disabled: fires on every LSP progress tick (e.g. basedpyright),
+      # which is near-continuous while editing and just noise. noice's
+      # own LSP progress popup is disabled too (see plugins/ui.nix).
+      setupOpts.lsp_progress.enable = false;
+    };
     map.enable = true;
     indentscope.enable = true;
     #cursorword.enable = true;
